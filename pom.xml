@@ -11,6 +11,8 @@
 	<groupId>br.com.leonardoangelo.app</groupId>
 	<artifactId>projeto-produtos-app</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+	<packaging>jar</packaging>
+	
 	<name>projeto-produtos-app</name>
 	<description>Projeto modelagem conceitual com UML</description>
 
