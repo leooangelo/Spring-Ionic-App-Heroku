@@ -3,8 +3,6 @@ package br.com.leonardoangelo.app.service;
 import java.util.Date;
 import java.util.Optional;
 
-import javax.print.attribute.standard.PDLOverrideSupported;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -40,6 +38,9 @@ public class PedidoService {
 	@Autowired
 	private ClienteService clienteService;
 	
+	@Autowired 
+	private EmailService emailService;
+	
 	
 
 	public Pedido find(Integer id) {
@@ -70,7 +71,7 @@ public class PedidoService {
 			ip.setPedido(pedido);
 		}
 		itemPedidoRepository.saveAll(pedido.getItens());
-		System.out.println(pedido);
+		emailService.sendOrderConfirmationEmail(pedido);
 		return pedido;
 	}
 
